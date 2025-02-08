@@ -19,21 +19,34 @@
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
         <link rel="canonical" href="joeweil.com">
         <link rel = "icon" type = "image/x-icon" href = "assets/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"><!--Import icons via Bootstrap-->
         <style>
-            body {
-                font-family:'Raleway';
-                font-size:clamp(15px,2.1vw, 200px);
-                color:#414141;
-                background-color:rgb(250, 245, 238)
-            }
-            nav{/*#FIX THIS*/
-                color:rgb(250, 245, 238);
-            }
             header{
                 font-family:'Raleway';
-                font-size:clamp(15px,2.1vw, 200px);
-                color:rgb(250, 245, 238);
+                padding:30px;
+                font-size:clamp(15px,2.5vw, 200px);
                 background-color:#414141;
+            }
+            body {
+                font-family: 'Raleway';
+                font-size: clamp(15px, 2.3vw, 200px);
+                color: #414141;
+                background-color: rgb(250, 245, 238);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            footer {
+                font-family: 'Raleway';
+                font-size: clamp(15px, 2.5vw, 200px);
+                background-color: #414141;
+                width: 100%;
+                margin-top: auto; /* This pushes the footer to the bottom */
+            }
+            .inheader{/*#FIX THIS*/
+                color:rgb(250, 245, 238);
             }
             a{
                 color:#414141;
@@ -59,53 +72,112 @@
                 width: 70%;
                 border-radius:0px;
             }
+            .iconbox{ /* Github,Linkedin, and Email icon box */
+            font-size:15px; 
+            right:17%;
+            bottom:10%;
+        }
         </style>
     </head>
     <body>
-        <header style="padding:30px">
-            
+        <header>
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='index.html'">
                         <img src="assets/favicon.png" style="width:100%;height:90%;object-fit:fill">
                 </div>
-                <a href="about.html">About&#8194</a>
-                <a href="main.html">Resume&#8194</a>
-                <a href="https://www.github.com/tahoejoe171">Github&#8194</a>
-                <a href="Portfolio.html">Portfolio</a>
+                <a class="inheader" href="about.html">About&#8194</a>
+                <a class="inheader" href="main.html">Resume&#8194</a>
+                <a class="inheader" href="https://www.github.com/tahoejoe171">Github&#8194</a>
+                <a class="inheader" href="Portfolio.html">Portfolio</a>
               </nav>
         </header>
         <br>
         <br>
         <h1 style="text-align: center;">
-            Projects
+           Current Projects
         </h1>
-        <div class="container w-75 h-75 bg-primary">
-            <div class="row bg-primary">
-                <div class="col-lg-6 bg-info">
+        <br>
+        <div class="container w-75 h-75 ">
+            <div class="row">
+                <div class="col-lg-6">
                     <div style="padding:10px">
-                        <a href="window.location.href='https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper'">
-                            <img src="assets/Scraper.png">
+                        <a href='https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper'">
+                            <img src="assets/Scraper.png" >
+                            <br>
+                            <br>
+                            <p>
+                                INaturalist API Observation<br> Data Scraper
+                            </p>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    
+                    <div style="padding:10px">
+                        <a href="">
+                            <img src="https://m.media-amazon.com/images/I/51QGnMi4+zL.jpg" >
+                            <br>
+                            <br>
+                          
+                                What trends can be derived 
+                                <br>
+                                from INaturalist Observations? 
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--
             <br>
             <br>
-        </h1>
-        <h3 style="text-align:center">
-            Coming Soon...
-        </h3>
-        -->
-        
-        
+            <br>
+            <br>
+            <br>
             
-            
-        </table>
-       
+            <!---- Project Row Template
+
+            <div class="row bg-primary">
+                <div class="col-lg-6 bg-info">
+                    <div style="padding:10px">
+                        <a href="">
+                            <img src="assets/" >
+                            <br>
+                            <br>
+                            <p>
+                                "title" 
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div style="padding:10px">
+                        <a href="">
+                            <img src="assets/" >
+                            <br>
+                            <br>
+                            <p>
+                                "title" 
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>  
+        <footer style="padding:30px">
+            <nav>
+                <div class="iconbox" style="justify-content: center; display:flex;" >
+                    <button class="btn" style="width:10vw" onclick="window.location.href='https://www.linkedin.com/in/joseph-weil-654197282/'"> 
+                        <i class="bi bi-linkedin" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                    &#8194
+                    <button class="btn" style="width:10vw" onclick="window.location.href='https://github.com/tahoejoe171'">
+                        <i class="bi bi-github" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                    &#8194
+                    <button class="btn" style="width:10vw" onclick="window.location.href='mailto:joe4weil@gmail.com'">
+                        <i class="bi bi-envelope" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                </div>
+            </nav>
+        </footer>  
     </body>
 </html>

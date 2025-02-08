@@ -19,13 +19,37 @@
       <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
       <link rel="canonical" href="joeweil.com">
       <link rel = "icon" type = "image/x-icon" href = "favicon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"><!--Import icons via Bootstrap-->
       <style>
-        body {
-            font-family:'Raleway';
-            font-size:clamp(15px,2.1vw, 200px);
-            color:#414141;
-            background-color:rgb(250, 245, 238)
+        header{
+                font-family:'Raleway';
+                font-size:clamp(15px,2.5vw, 200px);
+                background-color:#414141;
+            }
+            body {
+                font-family: 'Raleway';
+                font-size: clamp(15px, 2.3vw, 200px);
+                color: #414141;
+                background-color: rgb(250, 245, 238);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+            
+            footer {
+                font-family: 'Raleway';
+                font-size: clamp(15px, 2.5vw, 200px);
+                background-color: #414141;
+                width: 100%;
+                margin-top: auto; /* This pushes the footer to the bottom */
+            }
+            main{
+                flex:1;
         }
+            .inheader{/*#FIX THIS*/
+                color:rgb(250, 245, 238);
+            }
         a{
             color:#414141;
             text-decoration:none;
@@ -37,27 +61,39 @@
             
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='index.html'">
-                        <img src="favicon.png" style="width:100%;height:100%;object-fit:fill">
+                        <img src="assets/favicon.png" style="width:100%;height:100%;object-fit:fill">
                 
                 </div>
-                <a href="about.html">About&#8194</a>
-                <a href="main.html">Resume&#8194</a>
-                <a href="https://www.github.com/tahoejoe171">Github&#8194</a>
-                <a href="Portfolio.html">Portfolio</a>
+                <a class="inheader" href="about.html">About&#8194</a>
+                <a class="inheader" href="main.html">Resume&#8194</a>
+                <a class="inheader" href="https://www.github.com/tahoejoe171">Github&#8194</a>
+                <a class="inheader" href="Portfolio.html">Portfolio</a>
               </nav>
         </header>
-        <div style="height: 2px; background-color: #414141; width: 100%;"></div>
-        <br>
         <br>
         <h1 style="text-align: center;">
             About
         </h1>
-        
-        
-        
-            
-            
-        </table>
-       
+        <p style="font-size:3vh;margin-left:50px; margin-right:50px">
+            Welcome to my portfolio website. I have created this site from scratch as my first project in web design and to serve as a platform to 
+            display my projects. See my Github for the full documentation, as well as my other projects. More is soon to come!
+        </p>
+        <footer style="padding:30px">
+            <nav>
+                <div class="iconbox" style="justify-content: center; display:flex;" >
+                    <button class="btn" style="width:10vw" onclick="window.location.href='https://www.linkedin.com/in/joseph-weil-654197282/'"> 
+                        <i class="bi bi-linkedin" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                    &#8194
+                    <button class="btn" style="width:10vw" onclick="window.location.href='https://github.com/tahoejoe171'">
+                        <i class="bi bi-github" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                    &#8194
+                    <button class="btn" style="width:10vw" onclick="window.location.href='mailto:joe4weil@gmail.com'">
+                        <i class="bi bi-envelope" style="font-size: 25px; color:rgb(250, 245, 238)"></i>
+                    </button>   
+                </div>
+            </nav>
+        </footer>  
     </body>
 </html>
