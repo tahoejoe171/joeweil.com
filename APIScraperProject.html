@@ -66,7 +66,6 @@
             border: none;
             text-align: left;
             outline: none;
-            font-size: 15px;
         }
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -86,7 +85,6 @@
         }    
         .collapsible:after {
             content: '\02795'; /* Unicode character for "plus" sign (+) */
-            font-size: 13px;
             color: white;
             float: right;
             margin-left: 55px;
@@ -131,7 +129,7 @@
                 <a class="inheader" href="Portfolio.html">Portfolio</a>
               </nav>
         </header>
-        <div style="overflow:hidden;height:350px; position:relative">
+        <div style="overflow:hidden;height:300px; position:relative">
             <img src="assets/scraperbg.png">
             <div id="title">
                 <h1 style="text-align: center;">
@@ -152,14 +150,18 @@
             </div>
             <button type="button" class="collapsible">Objectives</button>
             <div class="content">
-                <p>
-                    bruh
-                </p>
+                <ul>
+                    <li>Develop a data scraper in Python to gather observational data from INaturalist's API</li>
+                    <li>Filter observations to exclude incomplete records, ensuring that all data contains valid taxonomy and photographs</li>
+                    <li>Create reusable code with customizable parameters and data fields such as geographical area, taxonomy, date range, etc., for flexible data collection</li>
+                    <li>Automate the process, maintaining compliance with INaturalist's API rate limit policies</li>
+                    <li>Document the process clearly for future reference and public use</li>
+                </ul>
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
                 <p>
-                    To see the full Jupyter Notebook, view the repository <a href="https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:#2576b9"> here</a>.
+                    To see the full Jupyter Notebook and try it yourself, view the repository <a href="https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:#2576b9"> here</a>.
                 </p>
             </div>
         </div>
