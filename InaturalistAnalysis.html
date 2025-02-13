@@ -77,12 +77,11 @@
 
         /* Style the collapsible content. Note: hidden by default */
         .content {
+            padding: 18px;
             overflow: hidden;
-            max-height: 0;
             background-color: rgb(250, 245, 238);
             margin-right: 50px;
             margin-left: 50px;
-            transition: max-height 0.2s ease-out;
         }    
         .collapsible:after {
             content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -111,7 +110,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 15px;
+            padding: 5px;
             text-align: center;
             color: rgb(250, 245, 238);
         }
@@ -132,10 +131,10 @@
               </nav>
         </header>
         <div style="overflow:hidden;height:350px; position:relative">
-            <img src="assets/scraperbg.png">
+            <img src="assets/inaturalistanalysis.jpg">
             <div id="title">
                 <h1 style="text-align: center;">
-                    INaturalist API Observation Data Scraper
+                    Coming Soon...
                 </h1>
             </div>
         </div>
@@ -143,23 +142,33 @@
         <div style="margin-right:50px; margin-left:50px">
             <button type="button" class="collapsible">Abstract</button>
             <div class="content">
-                <p>INaturalist is one of the world's largest ecological databases. With over 270 million specimen observations uploaded by users worldwide, 
-                    it can be a valuable source of data on a significant portion of known taxa that would otherwise not be publicly available. 
-                    With fully public access, anyone can retrieve their data for scientific and non-commercial use. Though they have a data export tool available,
-                    it is limited in the fields you can retrieve, as well as the total amount of data you can request. To solve this problem,
-                    I designed my own program to scrape their API, which, while not intended for data scraping, can still be scraped within their usage policy without issue. 
+                <p> 
                 </p>
             </div>
             <button type="button" class="collapsible">Objectives</button>
             <div class="content">
                 <p>
-                    bruh
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Collection</button>
+            <div class="content">
+                <p>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Cleaning</button>
+            <div class="content">
+                <p>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Visualization</button>
+            <div class="content">
+                <p>  
                 </p>
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
-                <p>
-                    To see the full Jupyter Notebook, view the repository <a href="https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:#2576b9"> here</a>.
+                <p style="margin-left:50px; margin-right:50px">
+                    To see the full Jupyter Notebook, view the repository <a href="https://github.com/tahoejoe171/" style="color:#2576b9"> here</a>.
                 </p>
             </div>
         </div>
