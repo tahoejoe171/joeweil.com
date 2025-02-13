@@ -54,6 +54,47 @@
             color:#414141;
             text-decoration:none;
         }
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+            background-color: #bebebe;
+            color: #414141;
+            cursor: pointer;
+            margin-bottom:3px;
+            margin-top:3px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .collapsible:hover {
+            background-color: #757575;
+            color: rgb(250, 245, 238);
+        }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+            padding: 18px;
+            display: none;
+            overflow: hidden;
+            background-color: rgb(250, 245, 238);
+            margin-right: 50px;
+            margin-left: 50px;
+        }    
+        .collapsible:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: white;
+            float: right;
+            margin-left: 55px;
+        }
+
+        .active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }    
         </style>
     </head>
     <body>
@@ -69,21 +110,50 @@
                 <a class="inheader" href="Portfolio.html">Portfolio</a>
               </nav>
         </header>
-        <br>
+        <div style="height:400px">
+        <img src="assetts/scraperbg.png" style="width:100%; object-fit: cover; object-position: center;">
+        </div>
         <h1 style="text-align: center;">
             INaturalist API Observation Data Scraper
         </h1>
-        <p style="margin-left:50px; margin-right:50px">
-          INaturalist is one of the world's largest ecological databases. With over 270 million specimen observations uploaded by users worldwide, 
-          it can be a valuable source of data on a significant portion of known taxa that would otherwise not be publicly available. 
-          With fully public access, anyone can retrieve their data for scientific and non-commercial use. Though they have a data export tool available,
-          it is limited in the fields you can retrieve, as well as the total amount of data you can request. To solve this problem,
-          I designed my own program to scrape their API, which, while not intended for data scraping, can still be scraped within their usage policy without issue. 
-
-        </p>
-        <p style="margin-left:50px; margin-right:50px">
-            To see the full Jupyter Notebook, view the repository <a href=""https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:#2576b9"> here</a>.
-        </p>
+        <div style="margin-right:50px; margin-left:50px">
+            <button type="button" class="collapsible">Abstract</button>
+            <div class="content">
+                <p>INaturalist is one of the world's largest ecological databases. With over 270 million specimen observations uploaded by users worldwide, 
+                    it can be a valuable source of data on a significant portion of known taxa that would otherwise not be publicly available. 
+                    With fully public access, anyone can retrieve their data for scientific and non-commercial use. Though they have a data export tool available,
+                    it is limited in the fields you can retrieve, as well as the total amount of data you can request. To solve this problem,
+                    I designed my own program to scrape their API, which, while not intended for data scraping, can still be scraped within their usage policy without issue. 
+                </p>
+            </div>
+            <button type="button" class="collapsible">Objectives</button>
+            <div class="content">
+                <p>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Collection</button>
+            <div class="content">
+                <p>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Cleaning</button>
+            <div class="content">
+                <p>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Data Visualization</button>
+            <div class="content">
+                <p>  
+                </p>
+            </div>
+            <button type="button" class="collapsible">Full Respository</button>
+            <div class="content">
+                <p style="margin-left:50px; margin-right:50px">
+                    To see the full Jupyter Notebook, view the repository <a href=""https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:#2576b9"> here</a>.
+                </p>
+            </div>
+        </div>
+        
         <footer style="padding:30px">
             <nav>
                 <div class="iconbox" style="justify-content: center; display:flex;" >
@@ -100,6 +170,24 @@
                     </button>   
                 </div>
             </nav>
-        </footer>  
+        </footer> 
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+        
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            coll[0].classList.toggle("active"); /*Make the first collapsible (Abstract) always active upon loading*/
+            coll[0].nextElementSibling.style.display="block";
+        </script> 
     </body>
 </html>
