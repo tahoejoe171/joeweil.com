@@ -113,6 +113,15 @@
             text-align: center;
             color: rgb(250, 245, 238);
         }
+        .paragraph{
+            text-indent:30px;
+        }
+        .collapsible_component{
+            width:100%;
+            object-fit: fill;
+            min-height:200px;
+
+        }
         </style>
     </head>
     <body>
@@ -141,13 +150,14 @@
         <div style="margin-right:50px; margin-left:50px">
             <button type="button" class="collapsible">Background</button>
             <div class="content">
-                <p> 
+                <p class="paragraph"> 
                     INaturalist has been an invaluable community-based social network built around sharing biodiversity information 
                     and surveying specimens since 2008. Though it is sometimes used to supplement private and well-funded datasets in ecological studies, 
                     its reliance on individual users lends to its dataset often plagued with erroneous data, poor formatting, and biased observations. 
                     Despite this, INaturalist is often considered the largest community ecology database with the largest community of professional and amateur
                     naturalists, and its data still holds many valuable insights. 
-                    <br>
+                </p>
+                <p class="paragraph">
                     When choosing a dataset for a case study on INaturalist's vast swath of data, I figured I should opt for a tight-knit, isolated locale whose
                     whose species information is mostly known and well-documented. Due also to the fact that my data scraping program is compliant with INaturalist's 
                     data collection policy, I chose to collect a complete dataset on the Hawaiian Archipelago as a reasonable goal. Not only do I find this region 
@@ -168,12 +178,12 @@
             </div>
             <button type="button" class="collapsible">Data Collection</button>
             <div class="content">
-                <p>
-                    My dataset on the Hawaiian Archipelago observations consists of the following fields: taxon name, INaturalist observation ID, locaiton, positional accuracy (m), date observed, 
+                <p class="paragraph">
+                    My dataset on the Hawaiian Archipelago observations consists of the following fields: taxon name, INaturalist observation ID, location, positional accuracy (m), date observed, 
                     species guess, preferred common name, highest taxon rank, conservation status, establishment means, location obscured (boolean), rank extinct (boolean), photo URL, and photo attribution. 
                     With almost 700,000 total observations of specimens dating back to 1855, the data includes every observation with a valid identification and photo. At this size, it took almost a week to fully compile.
                      To learn more about the data collection process,
-                    see my INaturalist API Data Scraper project <a href="APIScraperProject.html">here</a>. 
+                    see my INaturalist API Data Scraper project <a href="APIScraperProject.html" style="color:#2576b9">here</a>. 
                 </p>
             </div>
             <button type="button" class="collapsible">Data Cleaning</button>
@@ -185,10 +195,11 @@
             <div class="content">
                 <p>  
                 </p>
+                <img src="assets/Total_Unique_Taxa.png" class="collapsible_component">
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
-                <p style="margin-left:50px; margin-right:50px">
+                <p class="paragraph">
                     To see the full Jupyter Notebook, view the repository <a href="https://github.com/tahoejoe171/" style="color:#2576b9"> here</a>.
                 </p>
             </div>

@@ -25,31 +25,31 @@
                 font-family:'Raleway';
                 font-size:clamp(15px,2.5vw, 200px);
                 background-color:#414141;
-            }
-            body {
-                font-family: 'Raleway';
-                font-size: clamp(15px, 1.5vw, 200px);
-                color: #414141;
-                background-color: rgb(250, 245, 238);
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                margin: 0;
-            }
-            
-            footer {
-                font-family: 'Raleway';
-                font-size: clamp(15px, 2.5vw, 200px);
-                background-color: #414141;
-                width: 100%;
-                margin-top: auto; /* This pushes the footer to the bottom */
-            }
-            main{
-                flex:1;
         }
-            .inheader{/*#FIX THIS*/
-                color:rgb(250, 245, 238);
-            }
+        body {
+            font-family: 'Raleway';
+            font-size: clamp(15px, 1.5vw, 200px);
+            color: #414141;
+            background-color: rgb(250, 245, 238);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+        
+        footer {
+            font-family: 'Raleway';
+            font-size: clamp(15px, 2.5vw, 200px);
+            background-color: #414141;
+            width: 100%;
+            margin-top: auto; /* This pushes the footer to the bottom */
+        }
+        main{
+            flex:1;
+        }
+        .inheader{
+            color:rgb(250, 245, 238);
+        }
         a{
             color:#414141;
             text-decoration:none;
@@ -113,6 +113,16 @@
             text-align: center;
             color: rgb(250, 245, 238);
         }
+        #title h1{
+            transition:transform 0.3s ease;
+        }
+        #title:hover h1{
+            transform:scale(1.05);
+        }
+
+        .paragraph{
+            text-indent: 30px;
+        }
         </style>
     </head>
     <body>
@@ -132,20 +142,23 @@
         <div style="overflow:hidden;height:300px; position:relative">
             <img src="assets/scraperbg.png">
             <div id="title">
-                <h1 style="text-align: center;">
-                    INaturalist API Observation Data Scraper
-                </h1>
+                <a href="https://github.com/tahoejoe171/INaturalist-API-Observation-Data-Scraper" style="color:rgb(250, 245, 238)">
+                    <h1 style="text-align: center;">
+                        INaturalist API Observation Data Scraper
+                    </h1>
+                </a>
             </div>
         </div>
         
         <div style="margin-right:50px; margin-left:50px">
             <button type="button" class="collapsible">Abstract</button>
             <div class="content">
-                <p>INaturalist is one of the world's largest ecological databases. With over 270 million specimen observations uploaded by users worldwide, 
+                <p class="paragraph">INaturalist is one of the world's largest ecological databases. With over 270 million specimen observations uploaded by users worldwide, 
                     it can be a valuable source of data on a significant portion of known taxa that would otherwise not be publicly available. 
                     With fully public access, anyone can retrieve their data for scientific and non-commercial use. Though they have a data export tool available,
                     it is limited in the fields you can retrieve, as well as the total amount of data you can request. To solve this problem,
-                    I designed my own program to scrape their API, which, while not intended for data scraping, can still be scraped within their usage policy without issue. 
+                    I designed my own program to scrape their API, which, while not intended for data scraping, can still be scraped within their usage policy without issue.
+                    With this tool, I am able to create ecological datasets based on personalized parameters with as much accuracy as is guaranteed by the site itself.
                 </p>
             </div>
             <button type="button" class="collapsible">Objectives</button>
@@ -157,6 +170,40 @@
                     <li>Automate the process, maintaining compliance with INaturalist's API rate limit policies</li>
                     <li>Document the process clearly for future reference and public use</li>
                 </ul>
+            </div>
+            <button type="button" class="collapsible">How it works</button>
+            <div class="content">
+                <p class="paragraph">
+                    INaturalist's API policy restricts request volume to 10,000 per day and 60 per minute, with 
+                    no more than 10,000 total results per search request, no more than 200 results per page, no more than 5GB 
+                    downloaded per hour, and no more than 24GB downloaded per day. With so many restrictions, it is difficult
+                    to design a scraping program to fully comply. In order to do so, this program uses the "search window" method
+                    of cycling through intervals of observation IDs to limit request results. This method therefore requires 
+                    a high volume of requests and downloaded data, which be simultaneously monitored by the program.<br>
+                    <p>The functionality is as follows:</p>
+                    <ol>
+                        <li>User Initializes search parameters and user identification headers</li>
+                        <li>Requests maximum INaturalist ID number based on search parameters</li>
+                        <li>Calculates size and total number of "search windows" of ID ranges</li>
+                            <div style="font-weight:bold;">Looping through each window:</div> 
+                        <li>Sends request to API server with search parameters for each page of results</li>
+                        <li>Recieves JSON data from each page, parses individual observations into a csv file and rejects invalid observations</li>
+                        <li>Downloads 5GB of JSON data per hour, saves, and sleeps until the next hour once 5GB is reached</li>
+                        <li>After 24GB, program saves and sleeps for 19 hours and repeats until finished</li>
+                    </ol>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Technical Challenges</button>
+            <div class="content">
+                <p>
+                    <ul>
+                        <li>Parsing INaturalist's verbose and messy JSON request results into a concise and useful set of data in CSV format using Pandas</li>
+                        <li>Maintaining compliance with the rate limit policy while maximizing scraping efficiency without the need for authentication</li>
+                        <li>Clocking download capacity and structuring download session accordingly</li>
+                        <li>Handling issues with network connectivity and 403 errors throughout testing</li>
+                        <li>Ensuring proper pagination and retrieval of all possible results</li>
+                    </ul>
+                </p>
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
