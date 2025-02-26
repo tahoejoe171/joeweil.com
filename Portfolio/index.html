@@ -37,7 +37,12 @@
                 flex-direction: column;
                 margin: 0;
             }
-
+            .fav{
+                width:100%;
+                height:90%;
+                object-fit:fill;
+                font-size: clamp(15px, 2.3vw, 200px);
+            }
             footer {
                 font-family: 'Raleway';
                 font-size: clamp(15px, 2.5vw, 200px);
@@ -58,14 +63,14 @@
                 text-align:center;
 
             }
-            img{
+            .im{
                 transition: transform 0.2s ease-in-out;
                 width: 70%; 
                 height: 70%; 
                 object-fit: contain; 
                 border-radius:10px;
             }
-            img:hover{
+            .im:hover{
                 transform: scale(1.1);
             }
             button{
@@ -83,7 +88,7 @@
         <header>
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='/'">
-                        <img src="/assets/favicon.png" style="width:100%;height:90%;object-fit:fill">
+                        <img class="fav" src="/assets/favicon.png">
                 </div>
                 <a class="inheader" href="/About">About&#8194</a>
                 <a class="inheader" href="/Resume">Resume&#8194</a>
@@ -102,7 +107,7 @@
                 <div class="col-lg-6">
                     <div style="padding:10px">
                         <a href='/APIScraperProject'>
-                            <img src="/assets/Scraper.png" >
+                            <img class="im" src="/assets/Scraper.png" >
                             <br>
                             <br>
                             <p>
@@ -114,11 +119,11 @@
                 <div class="col-lg-6">
                     <div style="padding:10px">
                         <a href="/InaturalistAnalysis">
-                            <img src="https://m.media-amazon.com/images/I/51QGnMi4+zL.jpg" >
+                            <img class="im" src="https://m.media-amazon.com/images/I/51QGnMi4+zL.jpg" >
                             <br>
                             <br>
                           
-                                Exploring INaturalist Observations: 
+                                How Useful is INaturalist Data? 
                                 <br>
                                 A Case Study 
                             </p>

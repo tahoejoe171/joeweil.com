@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-      <title>About Joe Weil</title>
-      <meta charset="utf-8">
-        <!--Accessing the bootstrap framework-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="keywords" content="Joseph Weil, Joe Weil">
-      <meta name="description" content="Portfolio Website for Joe Weil">
-      <meta name="author" content="Joseph C. Weil">
-      <!--Metadata for proper rendering in open graph protocol should my portfolio be linked on any social media sites-->
-      <meta property="og:site_name" content="Joe Weil">
-      <meta property="og:title" content="INaturalist API Ovservation Data Scraper">
-      <meta property="og:url" content="https://www.Joeweil.com/APIScraperProject">
-      <meta property="og:type" content="Website">
-      <meta property="og:locale" content="en_US">
-      <meta property="og:image" content="/assets/Scraper.png">
-      <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-      <link rel="canonical" href="joeweil.com">
-      <link rel = "icon" type = "image/x-icon" href = "assets/favicon.ico">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"><!--Import icons via Bootstrap-->
-      <style>
-        header{
-                font-family:'Raleway';
-                font-size:clamp(15px,2.5vw, 200px);
-                background-color:#414141;
-            }
+        <title>About Joe Weil</title>
+        <meta charset="utf-8">
+          <!--Accessing the bootstrap framework-->
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Joseph Weil, Joe Weil">
+        <meta name="description" content="Portfolio Website for Joe Weil">
+        <meta name="author" content="Joseph C. Weil">
+        <!--Metadata for proper rendering in open graph protocol should my portfolio be linked on any social media sites-->
+        <meta property="og:site_name" content="Joe Weil">
+        <meta property="og:title" content="INaturalist API Ovservation Data Scraper">
+        <meta property="og:url" content="https://www.Joeweil.com/APIScraperProject">
+        <meta property="og:type" content="Website">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:image" content="/assets/Scraper.png">
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="canonical" href="joeweil.com">
+        <link rel = "icon" type = "image/x-icon" href = "/assets/favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"><!--Import icons via Bootstrap-->
+        <style>
+            header{
+                      font-family:'Raleway';
+                      font-size:clamp(15px,2.5vw, 200px);
+                      background-color:#414141;
+                  }
             body {
                 font-family: 'Raleway';
-                font-size: clamp(15px, 1.5vw, 200px);
+                font-size: clamp(12px, 1vw, 200px);
                 color: #414141;
                 background-color: rgb(250, 245, 238);
                 min-height: 100vh;
@@ -36,7 +36,12 @@
                 flex-direction: column;
                 margin: 0;
             }
-            
+            .fav{
+                width:100%;
+                height:90%;
+                object-fit:fill;
+                font-size: clamp(15px, 2.3vw, 200px);
+            }
             footer {
                 font-family: 'Raleway';
                 font-size: clamp(15px, 2.5vw, 200px);
@@ -46,82 +51,81 @@
             }
             main{
                 flex:1;
-        }
-            .inheader{/*#FIX THIS*/
-                color:rgb(250, 245, 238);
             }
-        a{
-            color:#414141;
-            text-decoration:none;
-        }
-        /* Style the button that is used to open and close the collapsible content */
-        .collapsible {
-            background-color: #bebebe;
-            color: #414141;
-            cursor: pointer;
-            margin-bottom:3px;
-            margin-top:3px;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            text-align: left;
-            outline: none;
-        }
+                .inheader{/*#FIX THIS*/
+                    color:rgb(250, 245, 238);
+                }
+            a{
+                color:#414141;
+                text-decoration:none;
+            }
+            /* Style the button that is used to open and close the collapsible content */
+            .collapsible, .subcollapsible {
+                background-color: #bebebe;
+                color: #414141;
+                cursor: pointer;
+                margin-bottom:3px;
+                margin-top:3px;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                text-align: left;
+                outline: none;
+                }
 
-        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active, .collapsible:hover {
-            background-color: #757575;
-            color: rgb(250, 245, 238);
-        }
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active, .collapsible:hover, .subcollapsible:hover {
+                background-color: #757575;
+                color: rgb(250, 245, 238);
+            }
 
-        /* Style the collapsible content. Note: hidden by default */
-        .content {
-            overflow: hidden;
-            max-height: 0;
-            background-color: rgb(250, 245, 238);
-            margin-right: 50px;
-            margin-left: 50px;
-            transition: max-height 0.2s ease-out;
-        }    
-        .collapsible:after {
-            content: '\02795'; /* Unicode character for "plus" sign (+) */
-            color: white;
-            float: right;
-            margin-left: 55px;
-        }
+            /* Style the collapsible content. Note: hidden by default */
+            .content {
+                overflow: hidden;
+                max-height: 0;
+                background-color: rgb(250, 245, 238);
+                margin-right: 50px;
+                margin-left: 50px;
+                transition: max-height 0.2s ease-out;
+            }    
+            .collapsible:after,.subcollapsible:after {
+                content: '\02795'; /* Unicode character for "plus" sign (+) */
+                color: white;
+                float: right;
+                margin-left: 55px;
+            }
 
-        .active:after {
-            content: "\2796"; /* Unicode character for "minus" sign (-) */
-        }    
-        img{
-            height: 400px;
-            width:100vw; 
-            max-width:none;
-            object-fit: cover; 
-            object-position: center;
-            z-index:-1;
-        }
-        #title{
-            background-color: #414141;
-            border-radius: 20px;
-            z-index: 1;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px;
-            text-align: center;
-            color: rgb(250, 245, 238);
-        }
-        .paragraph{
-            text-indent:30px;
-        }
-        .collapsible_component{
-            width:100%;
-            object-fit: fill;
-            min-height:200px;
-
-        }
+            .active:after {
+                content: "\2796"; /* Unicode character for "minus" sign (-) */
+            }    
+            img{
+                height: 400px;
+                width:100vw; 
+                max-width:none;
+                object-fit: cover; 
+                object-position: center;
+                z-index:-1;
+            }
+            #title{
+                background-color: #414141;
+                border-radius: 20px;
+                z-index: 1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 15px;
+                text-align: center;
+                color: rgb(250, 245, 238);
+            }
+            .paragraph{
+                text-indent:30px;
+            }
+            .collapsible_component{ /**Images and figures of collapsible boxes**/
+                width:100%;
+                object-fit: scale-down;
+                min-height:200px;
+            }
         </style>
     </head>
     <body>
@@ -129,7 +133,7 @@
             
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='/'">
-                        <img src="/assets/favicon.png" style="width:100%;height:100%;object-fit:fill">
+                        <img class="fav" src="/assets/favicon.png">
                         
                 </div>
                 <a class="inheader" href="/About">About&#8194</a>
@@ -191,11 +195,14 @@
                 <p>
                 </p>
             </div>
-            <button type="button" class="collapsible">Data Visualization</button>
+            <button type="button" class="collapsible">Data Visualizations</button>
             <div class="content">
+                <button type="button" class="subcollapsible">Total Taxa</button>
+                <div class="content">
+                    <img src="/assets/Total_Unique_Taxa.png"class=collapsible_component>
+                </div>
                 <p>  
                 </p>
-                <img src="/assets/Total_Unique_Taxa.png" class="collapsible_component">
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
@@ -224,6 +231,7 @@
         </footer> 
         <script>
             var coll = document.getElementsByClassName("collapsible");
+            var scoll = document.getElementsByClassName("subcollapsible")
             var i;
             // Set up click event listener for each collapsible
             for (i = 0; i < coll.length; i++) {
@@ -238,6 +246,22 @@
                     }
                 });
             }
+            // Set up click event listener for each subcollapsible 
+            for (i = 0; i < scoll.length; i++) {
+                scoll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    var pcontent = this.parentElement;
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        // Adjust maxHeight by considering the combined height of the parent and the content
+                        content.style.maxHeight = (content.scrollHeight) + "px";
+                        this.parentElement.style.maxHeight = (pcontent.scrollHeight+content.scrollHeight)+"px";
+                    }
+                });
+            }            
             // Make the first collapsible (Abstract) always active upon loading
             window.onload = function() {
                 coll[0].classList.add("active");

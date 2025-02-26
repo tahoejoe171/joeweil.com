@@ -28,7 +28,7 @@
         }
         body {
             font-family: 'Raleway';
-            font-size: clamp(15px, 1.5vw, 200px);
+            font-size: clamp(12px, 0.9vw, 200px);
             color: #414141;
             background-color: rgb(250, 245, 238);
             min-height: 100vh;
@@ -67,9 +67,21 @@
             text-align: left;
             outline: none;
         }
+        .subcollapsible {
+            background-color: #bebebe;
+            color: #414141;
+            cursor: pointer;
+            margin-bottom:3px;
+            margin-top:3px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+        }
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active, .collapsible:hover {
+        .active, .collapsible:hover, .subcollapsible:hover {
             background-color: #757575;
             color: rgb(250, 245, 238);
         }
@@ -81,9 +93,9 @@
             background-color: rgb(250, 245, 238);
             margin-right: 50px;
             margin-left: 50px;
-            transition: max-height 0.2s ease-out;
+            transition: max-height .2s ease-out;
         }    
-        .collapsible:after {
+        .collapsible:after, .subcollapsible:after {
             content: '\02795'; /* Unicode character for "plus" sign (+) */
             color: white;
             float: right;
@@ -123,6 +135,17 @@
         .paragraph{
             text-indent: 30px;
         }
+        iframe{
+            width:100%;
+            height:50vh;
+
+        }
+        .fav{
+                width:100%;
+                height:90%;
+                object-fit:fill;
+                font-size: clamp(15px, 2.3vw, 200px);
+            }
         </style>
     </head>
     <body>
@@ -130,7 +153,7 @@
             
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='/'">
-                        <img src="/assets/favicon.png" style="width:100%;height:100%;object-fit:fill">
+                        <img src="/assets/favicon.png" class="fav">
                         
                 </div>
                 <a class="inheader" href="/About">About&#8194</a>
@@ -149,7 +172,7 @@
                 </a>
             </div>
         </div>
-        
+        <br>
         <div style="margin-right:50px; margin-left:50px">
             <button type="button" class="collapsible">Abstract</button>
             <div class="content">
@@ -173,6 +196,14 @@
             </div>
             <button type="button" class="collapsible">How it works</button>
             <div class="content">
+                <button type="button" class="subcollapsible">Methods</button>
+                <div class="content">
+                    <iframe src="/assets/Scraper_demo.html">
+
+                    </iframe>
+                </div>
+                <p>
+                </p>
                 <p class="paragraph">
                     INaturalist's API policy restricts request volume to 10,000 per day and 60 per minute, with 
                     no more than 10,000 total results per search request, no more than 200 results per page, no more than 5GB 
@@ -185,7 +216,7 @@
                         <li>User Initializes search parameters and user identification headers</li>
                         <li>Requests maximum INaturalist ID number based on search parameters</li>
                         <li>Calculates size and total number of "search windows" of ID ranges</li>
-                            <div style="font-weight:bold;">Looping through each window:</div> 
+                            <div style="font-weight:bold;">Get_Data() loop through each window:</div> 
                         <li>Sends request to API server with search parameters for each page of results</li>
                         <li>Recieves JSON data from each page, parses individual observations into a csv file and rejects invalid observations</li>
                         <li>Downloads 5GB of JSON data per hour, saves, and sleeps until the next hour once 5GB is reached</li>
@@ -212,6 +243,7 @@
                 </p>
             </div>
         </div>
+        <br>
         
         <footer style="padding:30px">
             <nav>
@@ -230,28 +262,48 @@
                 </div>
             </nav>
         </footer> 
-        <script>
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-            // Set up click event listener for each collapsible
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var scoll = document.getElementsByClassName("subcollapsible");
+    var i;
 
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
-                });
+    // Set up click event listener for each collapsible
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
             }
-            // Make the first collapsible (Abstract) always active upon loading
-            window.onload = function() {
-                coll[0].classList.add("active");
-                var firstContent = coll[0].nextElementSibling;
-                firstContent.style.maxHeight = firstContent.scrollHeight + "px";
-            };
-        </script>
+        });
+    }
+
+    // Set up click event listener for each subcollapsible 
+    for (i = 0; i < scoll.length; i++) {
+        scoll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            var pcontent = this.parentElement;
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                // Adjust maxHeight by considering the combined height of the parent and the content
+                content.style.maxHeight = (content.scrollHeight) + "px";
+                this.parentElement.style.maxHeight = (pcontent.scrollHeight+content.scrollHeight)+"px";
+            }
+        });
+    }
+
+    // Make the first collapsible (Abstract) always active upon loading
+    window.onload = function() {
+        coll[0].classList.add("active");
+        var firstContent = coll[0].nextElementSibling;
+        firstContent.style.maxHeight = firstContent.scrollHeight + "px";
+    };
+</script>
     </body>
 </html>

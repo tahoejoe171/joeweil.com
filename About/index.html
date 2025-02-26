@@ -28,7 +28,7 @@
             }
             body {
                 font-family: 'Raleway';
-                font-size: clamp(15px, 2.3vw, 200px);
+                font-size: clamp(12px, 1.0vw, 200px);
                 color: #414141;
                 background-color: rgb(250, 245, 238);
                 min-height: 100vh;
@@ -54,6 +54,25 @@
             color:#414141;
             text-decoration:none;
         }
+        .paragraph{
+            text-indent:30px;
+            font-size:2.5vh;
+            margin-left:50px; 
+            margin-right:50px;
+        }
+        .im{
+            width: 90%; 
+            height: 94%; 
+            object-fit: cover; /* Ensures the image covers the container and crops if necessary */
+            object-position:center;
+            border-radius: 70px;
+        }
+        .fav{
+                width:100%;
+                height:90%;
+                object-fit:fill;
+                font-size: clamp(15px, 2.3vw, 200px);
+            }
         </style>
     </head>
     <body>
@@ -61,7 +80,7 @@
             
             <nav style="width:100; text-align: right;">
                 <div class="container btn" style="width:60px;height:60px;float:left" onclick="window.location.href='/'">
-                        <img src="/assets/favicon.png" style="width:100%;height:100%;object-fit:fill">
+                        <img src="/assets/favicon.png" class="fav">
                 
                 </div>
                 <a class="inheader" href="/About">About&#8194</a>
@@ -71,13 +90,35 @@
               </nav>
         </header>
         <br>
-        <h1 style="text-align: center;">
-            About
-        </h1>
-        <p style="font-size:3vh;margin-left:50px; margin-right:50px">
-            Welcome to my portfolio website. I have created this site from scratch as my first project in web design and to serve as a platform to 
-            display my projects. See my Github for the full documentation, as well as my other projects. More is soon to come!
-        </p>
+
+        <div  class="row" style="margin-right:5vw;margin-left: 5vw;margin-top: 1vw;margin-bottom: 9vw;">
+            <div  class="col-lg-6">
+                <br>
+                <br>
+                <br>
+                <p class="paragraph">
+                    Hello and welcome to my website! My name is Joe Weil, and I am a recent undergraduate from UC San Diego, where I 
+                    obtained a Bachelor's of Science in Mathematics - Applied Science, with a minor in German Studies. I have designed this website 
+                    from the ground up as a platform to display my portfolio, resume, and anything else I am working on. To see the full repository for this website, 
+                    visit my <a href="https://github.com/tahoejoe171/joeweil.com" style="color:#2576b9">Github</a>.
+                    <br>
+                    <br>
+                </p>
+                <p class="paragraph">
+                    Since graduating with my degree, I have expanded my portfolio in both data science and web design, honing and expanding my skills with each project. 
+                    My passion for mathematics and problem-solving continues to drive my exploration of analytical techniques and developing efficient, scalable solutions.
+                    Currently, I am actively seeking job opportunities that align with my skills and interests, however I am open to new opportunities of any kind.
+                    For anyone wanting to get in contact, you can reach me at <a style="color:#2576b9" href="@mailto: jweil@ucsd.edu">jweil@ucsd.edu</a> or find me on <a href="https://www.linkedin.com/in/joseph-weil-654197282/" style="color:#2576b9">LinkedIn</a>.
+                </p>
+                <br>
+
+            </div>
+            <div  class="col-lg-6">
+                <img  class="im" src="/assets/Me.jpg">
+
+            </div>
+        </div>
+        
         <footer style="padding:30px">
             <nav>
                 <div class="iconbox" style="justify-content: center; display:flex;" >
