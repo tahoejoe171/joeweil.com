@@ -7510,30 +7510,19 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1>Native vs Introduced Annual Taxa Observation Totals</h1>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"C:\Users\jcwvi\Desktop\INaturalist Project\INaturalistDataset.csv"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"C:\Filepath"</span><span class="p">)</span>
 <span class="n">introduced_sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"Introduced_Sp.csv"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7593,7 +7582,7 @@ Additionally, I took the liberty of altering the establishment means of taxa who
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2>Cross-reference the GDIF dataset for Introduced taxa in Hawaii, Fill in all missing values for establishment_means</h2>
+<h3>Cross-referencing the GDIF dataset for Introduced taxa in Hawaii and  filling in all missing values for establishment_means</h3>
 Citation: GBIF.org (19 February 2025) GBIF Occurrence Download https://doi.org/10.15468/dl.atsrcy
 
 
@@ -7650,7 +7639,7 @@ Citation: GBIF.org (19 February 2025) GBIF Occurrence Download https://doi.org/1
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Some taxa I manually found as native, previously NA. Though most of the species marked as NA are probably native, I do not have the time to manually verify several thousand taxa. Therefore, altering the top 40 taxa with no establishment means, who comprised the majority of those observations, is good enough. <br/><br/> Upon further inspection, it would seem that the vast majority of these specimens are marine species. It would make sense that they are generally not officially recognized as native or endemic due to the fact that the oceans and marine ecosystems are far larger and less studied than terrestrial systems and especially isolated islands.</p>
+<p>Altering some taxa I manually found as native, previously NA. Though most of the species marked as NA are probably native, I do not have the time to manually verify several thousand taxa. Therefore, altering the top 40 taxa with no establishment means, who comprised the majority of those observations, is good enough. <br/><br/> Upon further inspection, it would seem that the vast majority of these specimens are marine species. It would make sense that they are generally not officially recognized as native or endemic due to the fact that the oceans and marine ecosystems are far larger and less studied than terrestrial systems and especially isolated islands.</p>
 </div>
 </div>
 </div>
