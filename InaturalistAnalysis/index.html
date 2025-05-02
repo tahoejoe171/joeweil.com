@@ -130,8 +130,8 @@
                 text-indent:30px;
             }
             .collapsible_component{ /**Images and figures of collapsible boxes**/
-                width:100%;
-                object-fit: scale-down;
+                width:70%;
+                object-fit: contain;
                 min-height:200px;
             }
             iframe{
@@ -234,6 +234,7 @@
                         <li>How biased are INaturalist observations?</li>
                         <li>How have annual observation quantities of both native and introduced species changed since 2008?</li>
                         <li>What kinds of population range shifts are visible purely through INaturalist observations?</li>
+                        <li>What practical usecases exist in a biased citizen science dataset?</li>
                         <li>Are any of these observational trends statistically signficicant representations of actual species populations?</li>
                     </ul>
                 </p>
@@ -267,7 +268,7 @@
                 <div class="content">
                     <button type="button" class="subsubcollapsible">Tourism Volume vs Observation Volume (Click the graph to toggle)</button>
                     <div class="content">
-                        <div class="imgwrapper" style="position:relative; width:100;height:450px">
+                        <div class="imgwrapper" style="position:relative; width:100;height:450px; text-align:center">
                             <img src="/assets/visualizations/Seasonality_Bias.png"class="collapsible_component toggleimg" style="position:absolute">
                             <img id="tourism" src="/assets/visualizations/tourismstats.png"class="collapsible_component toggleimg" style="position:absolute">
                         </div>
@@ -287,7 +288,22 @@
                         </div>
                     </div>
                     <button type="button" class="subsubcollapsible">Annual Observation Trends by Establishment Means</button>
-                    <div class="content">
+                    <div class="content" style="text-align:center">
+                        <p class="paragraph">
+                            Basically: It shows us a timeline composition of specimens.
+
+                                         Is it useful though: several explanations: 
+                                            changing userbase
+                                            increase of availability of phones
+                                            It could be just that invasive species are outnumbering native ones ()
+                                        Is it useful? can a practical answer to this be found? probably not.
+                                        For this, we need to plot the value counts of introduced and native species in the dataset. 
+                        
+                            A quick plot of the total taxa per establishment means shows us that introduced species have outnumbered native and endemic species in observations since about 2015.
+                            However, there may be several reasons that this trend could have appeared. The simplest explanation is that introduced species have begun to outnumber those which are native. This conclusion, however, is 
+                            <i>not</i> useful for several reasons. This could represent a shift from more seasoned naturalists focused on native species or perhaps less charismatic 
+                            species during INaturalist's early years to a userbase consisting of relatively more tourists who may be less knowledgable about ecology native to this region.
+                        </p>
                         <img src="/assets/visualizations/Total_Unique_Taxa.png"class="collapsible_component">
                         <img src="/assets/visualizations/Relative_Unique_Taxa.png"class="collapsible_component">
                     </div>
@@ -305,7 +321,9 @@
                     $$n = \text{total number of species}$$
                     $$H=-\Big[\sum_{i=0}^n p\cdot\ln{p}\Big]$$
                 </p>
-                <img src="/assets/visualizations/Cumulative_Biodiversity.png"class=collapsible_component>
+                <div style = "text-align:center">
+                    <img src="/assets/visualizations/Cumulative_Biodiversity.png"class=collapsible_component>
+                </div>
                 <p class="paragraph">
                     When interpreting the Shannon diversity index, it is important to know that low values (below 1.5) signify low diversity, while 
                     higher numbers (above 4) signify high diversity. Clearly, the Hawaiian archipelago has incredible diversity. However, what is important to note 
@@ -324,7 +342,9 @@
                     $$n_{1} = \text{number of OTU's (taxa) with only one observation}$$
                     $$n_{2} = \text{number of OTU's (taxa) with only two observations}$$
                 </p>
-                <img src="/assets/visualizations/Cumulative_Richness.png"class=collapsible_component>
+                <div style = "text-align:center">
+                    <img src="/assets/visualizations/Cumulative_Richness.png"class=collapsible_component>
+                </div>
                 <p class="paragraph">
                     As you can see, the cumulative Chao1 index has a linear, monotonically increasing trend, and the species richness by the year 2024 comes out to
                     around 10,688 total species. Through a quick google search, the Bishop Museum's measured species richness is around 21,383, about twice as many as our estimate.
@@ -347,21 +367,57 @@
                 </p>
             </div>
             <button type="button" class="collapsible">Geospatial Analyses</button>
+                <button type="button" class="subcollapsible">Range Shifts</button>
+                <div class="content">
+                    <p class="paragraph">
+                        Based on coordinates alone, there are many insights ready to be gathered on INaturalist specimen populations. First, we 
+                        can take a look at how population ranges shift over time, as ecological and anthropological factors alter distributions and as technology
+                        becomes more widely available.
+                        <br>
+                        [insert Paroaria coronata gif]
+                    </p>
+                    <p class="paragraph">
+                        Unfortunately, however, there are several issues with this approach. Unfortunately, it is impossible to differentiate between range changes
+                        that occured as a result of ecological and anthropological changes or increasing amount of amateur naturalists (myself included). Though the population ranges
+                        show growth relative to the overall amount of observations on the platform, as shown in a previous section, geospatial distribution can't be scaled to the relative increase in population vs observation dataset size.   
+                    </p>
+                    <p class="paragraph">
+                        But in what other useful ways can our data be used? One simple answer is seeing the early proliferation of invasive species. As in the case of the Coconut Rhinoceros Beetle 
+                        (Oryctes rhinoceros), this species has posed a serious and burgeoning threat to the coconut palm industry and economy among the islands in recent years. Though low in number on many islands, INaturalist provides a 
+                        an accessible platform on which civilians can report early sightings which can be used to track their spread in a publicly-available fashion. 
+                        <div style="text-align:center">
+                            <img src="/assets/visualizations/Oryctes.gif" class="collapsible_component">
+                        </div>
+                        <!--
+                        Average elevation of accurate specimens year after year, invasive and native
+                        Range shifts by genus?
+                        observation time series map
+                        Mapping new invasive species (Oryctes rhinoceros, Dicksonia antarctica, Eleutherodactylus coqui BI, GALS, Rhinella marina)
+                        -->
+                    </p>
+                </div>
+                <button type="button" class="subcollapsible">Elevational Shifts</button>
+                <div class="content">
+                    <p class="paragraph">
+                        Elevational changes in species' populations is another 
+                    </p>
+                </div>
+                
+
+            <button type="button" class="collapsible">Observing Phenological Changes</button>
             <div class="content">
-                <p class="paragraph">
-                    <!--
-                    Average elevation of accurate specimens year after year, invasive and native
-                    Range shifts by genus?
-                    observation time series map
-                    Mapping new invasive species (Oryctes rhinoceros, Dicksonia antarctica, Eleutherodactylus coqui BI, GALS, Rhinella marina)
-                    -->
+                <p class = "paragraph">
+                    One useful, often binary, phenomenon we can measure through observational data is phenology. Whether its the timing of the emergence of insects, growth and fall of leaves in deciduous trees, or the blooming of flowers, 
+                    phenology is fortunately one area of ecology that is largely unaffected by observational biases. This is becuase it is a measure of manifestation of environmental factors through specimens rather than of specimens themselves. In this case, a simple phenological phenomenon visible in this dataset is the 
+                    migratory cycle of the Pacific Golden Plover (Pluvialis fulva). Spending their summers around Alaska and Russia, they often migrate to Hawaii for the better part of the year, where citizen scientists can observe them.
                 </p>
-            </div>
-            <button type="button" class="collapsible">Data Visualizations</button>
-            <div class="content">
-                <!--
-                geospatial clustering algorithm KMeans or DBSCAN to identify species populations
-                -->
+                <div style="text-align:center">
+                    <img src="/assets/visualizations/Pluvialis fulva_Phenology.png" class="collapsible_component">
+                </div>
+                <p>
+                    If someone wanted, they could use this data to visualize the deviation in migratory times and compare it to environmental factors like temperature or the daylight cycle. However, the purpose
+                    of this example was to show that this dataset has a practical usecase rather than necessarily answering these types of questions. 
+                </p>
             
             </div>
             <button type="button" class="collapsible">Conclusion</button>
