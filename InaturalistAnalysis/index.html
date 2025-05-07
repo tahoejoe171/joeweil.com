@@ -219,12 +219,14 @@
                     naturalists, and its data still holds many valuable insights. 
                 </p>
                 <p class="paragraph">
-                    When choosing a dataset for a case study on INaturalist's vast swath of data, I figured I should opt for a tight-knit, isolated locale whose
-                    whose species information is mostly known and well-documented. Due also to the fact that my data scraping program is compliant with INaturalist's 
-                    data collection policy, I chose to collect a complete dataset on the Hawaiian Archipelago as a reasonable goal. Not only do I find this region 
+                    When choosing a dataset for a case study on INaturalist's vast swath of data, I figured I should opt for an isolated locale whose
+                    whose species information is mostly known and well-documented. Maintaining compliance with INaturalist's data scraping policies 
+                    meant that collecting a complete dataset on the Hawaiian Archipelago shouldn't be too unreasonable a goal to choose. Not only do I find this region 
                     ecologically and meteorologically fascinating, but its biodiversity is as uniquely interesting as it is permanently altered by human inhabitance. 
-                    While a professional dataset on the region is not easily accessible, the goal of this project is to see what legitimate insights one can derive on taxon and 
-                    population trends through time, both numerically and geographically, with the tools available to the lay person.
+                    While a professional dataset on the region is not easily accessible, the goal of this project is to see <i>what kinds of legitimate insights one can derive</i> on taxon and 
+                    population trends through time, both numerically and geographically, with the tools available to the lay person, rather than to uncover <i>what those actual insights are</i>.
+                    <br><br>
+                    Additionally, of course, this project serves as a means through which I can devleop and showcase my skills in data science and full-stack development.
                 </p>
             </div>
             <button type="button" class="collapsible">Research Questions</button>
@@ -288,24 +290,18 @@
                         </div>
                     </div>
                     <button type="button" class="subsubcollapsible">Annual Observation Trends by Establishment Means</button>
-                    <div class="content" style="text-align:center">
-                        <p class="paragraph">
-                            Basically: It shows us a timeline composition of specimens.
-
-                                         Is it useful though: several explanations: 
-                                            changing userbase
-                                            increase of availability of phones
-                                            It could be just that invasive species are outnumbering native ones ()
-                                        Is it useful? can a practical answer to this be found? probably not.
-                                        For this, we need to plot the value counts of introduced and native species in the dataset. 
-                        
+                    <div class="content">
+                        <p class="paragraph">                        
                             A quick plot of the total taxa per establishment means shows us that introduced species have outnumbered native and endemic species in observations since about 2015.
                             However, there may be several reasons that this trend could have appeared. The simplest explanation is that introduced species have begun to outnumber those which are native. This conclusion, however, is 
                             <i>not</i> useful for several reasons. This could represent a shift from more seasoned naturalists focused on native species or perhaps less charismatic 
-                            species during INaturalist's early years to a userbase consisting of relatively more tourists who may be less knowledgable about ecology native to this region.
+                            species during INaturalist's early years to a userbase consisting of relatively more tourists who may be less knowledgable about ecology native to this region. Additionally, most endemic species are 
+                            rare or impossible to access for the average tourist, and thus are not accounted for in the dataset. This will be explored further in the next section.
                         </p>
-                        <img src="/assets/visualizations/Total_Unique_Taxa.png"class="collapsible_component">
-                        <img src="/assets/visualizations/Relative_Unique_Taxa.png"class="collapsible_component">
+                        <div  style="text-align:center">
+                            <img src="/assets/visualizations/Total_Unique_Taxa.png"class="collapsible_component">
+                            <img src="/assets/visualizations/Relative_Unique_Taxa.png"class="collapsible_component">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -327,8 +323,8 @@
                 <p class="paragraph">
                     When interpreting the Shannon diversity index, it is important to know that low values (below 1.5) signify low diversity, while 
                     higher numbers (above 4) signify high diversity. Clearly, the Hawaiian archipelago has incredible diversity. However, what is important to note 
-                    is that the All Taxa cumulative index trends pretty linearly, meaning that the annual increases in observations are not nearing an asymptote, and ultimately that this 
-                    dataset does not caputure the full picture.
+                    is that the "All Taxa" cumulative index trends pretty linearly, meaning that the annual increases in observations are not nearing an asymptote.
+                    Ultimately, the data itself does not paint the full picture of biodiversity, but can we estimate richness via its change over time?
                 </p>
                 <p class="paragraph">
                     In order to tangibly quanitify the levels of biodiversity present in INaturalist observations, we will measure the estimated 
@@ -351,9 +347,11 @@
                     This means that INaturalist's observations represent only around <i>half</i> of the total biodiversity, though it is increasing with each year. If this dataset
                     was representative of actual biodiversity, this trend would eventually plateau despite an increasing amount of annual observations. Due to the increasing protections and
                     decreasing abunance of so many endemic species, this relationship is unlikely to ever manifest through INaturalist observations.
+                    <br><br>
                     Though rarefaction is generally used to account for the sampling biases and yield more accurate
                     species richness indices, this method generally skews greatly in datasets with many rare species. Thus,
-                    the Chao1 index is our best measure of biodiversity.  
+                    the Chao1 index is our best measure of biodiversity. It is easy to see how measuring diversity using citizen science data 
+                    falls completely short of a disciplined and well-funded environmental survey done at the hands of professionals. 
                 </p>
                 <p class="paragraph">
                     There are several reasons why INaturalist's data may be so biased. Some regions may be greatly oversampled compared to others, particulary 
@@ -367,6 +365,7 @@
                 </p>
             </div>
             <button type="button" class="collapsible">Geospatial Analyses</button>
+            <div class="content">
                 <button type="button" class="subcollapsible">Range Shifts</button>
                 <div class="content">
                     <p class="paragraph">
@@ -384,7 +383,7 @@
                     <p class="paragraph">
                         But in what other useful ways can our data be used? One simple answer is seeing the early proliferation of invasive species. As in the case of the Coconut Rhinoceros Beetle 
                         (Oryctes rhinoceros), this species has posed a serious and burgeoning threat to the coconut palm industry and economy among the islands in recent years. Though low in number on many islands, INaturalist provides a 
-                        an accessible platform on which civilians can report early sightings which can be used to track their spread in a publicly-available fashion. 
+                        an accessible platform on which civilians can report early sightings which can be used to track their spread in a publicly-available fashion (see gif below). 
                         <div style="text-align:center">
                             <img src="/assets/visualizations/Oryctes.gif" class="collapsible_component">
                         </div>
@@ -399,36 +398,92 @@
                 <button type="button" class="subcollapsible">Elevational Shifts</button>
                 <div class="content">
                     <p class="paragraph">
-                        Elevational changes in species' populations is another 
+                        Elevational changes in species' populations is another important metric in ecological surveys. Famously in Hawaii, the increase of global temperatures
+                        has been shown to increase the viable habitat range of (invasive) avian-malaria-carrying mosquitoes <i>Mauka</i>, or mountain-side, which in turn has reduced 
+                        the range of many endangered endemic bird species to the highest reaches of their remaining habitat. Though precise coordinates are unavailable for these kinds of species
+                        on INaturalist, we can still see if elevational trends exist in more stationary species, like (non-threatened) trees. 
+                        <br><br>
+                        However, one huge issue is that the same tree can be observed an unlimited amount of times by an unlimited amount of users. In other words, the complete (and reasonable) lack of
+                        discipline and communication between citizen scientists observing the same specimen may completely skew the dataset.
+                        One way we can overcome this is to screen out observations that lie too close to others. While complete screening for repeated observations would require advanced or even manual image processing,
+                        this is the best we can do for now. 
                     </p>
                 </div>
                 
-
+            </div>
             <button type="button" class="collapsible">Observing Phenological Changes</button>
             <div class="content">
                 <p class = "paragraph">
                     One useful, often binary, phenomenon we can measure through observational data is phenology. Whether its the timing of the emergence of insects, growth and fall of leaves in deciduous trees, or the blooming of flowers, 
-                    phenology is fortunately one area of ecology that is largely unaffected by observational biases. This is becuase it is a measure of manifestation of environmental factors through specimens rather than of specimens themselves. In this case, a simple phenological phenomenon visible in this dataset is the 
+                    phenology is fortunately one area of ecology that is largely unaffected by observational biases. This is becuase it is a measure of the manifestation of environmental factors through specimens rather than of the specimens themselves. 
+                    In this case, a simple phenological phenomenon visible in this dataset is the 
                     migratory cycle of the Pacific Golden Plover (Pluvialis fulva). Spending their summers around Alaska and Russia, they often migrate to Hawaii for the better part of the year, where citizen scientists can observe them.
                 </p>
                 <div style="text-align:center">
                     <img src="/assets/visualizations/Pluvialis fulva_Phenology.png" class="collapsible_component">
                 </div>
                 <p>
-                    If someone wanted, they could use this data to visualize the deviation in migratory times and compare it to environmental factors like temperature or the daylight cycle. However, the purpose
-                    of this example was to show that this dataset has a practical usecase rather than necessarily answering these types of questions. 
+                    In this case, the migratory trend is exremely clear and seemingly unaffected, and perhaps bolstered by, the unique characteristics of the citizen science community in Hawaii. 
+                    If someone wanted, they could use this data to visualize the deviation in migratory times and compare it to environmental factors like annual temperature or the daylight cycle. However, that goes
+                    beyond the scope of this project for the time being.
                 </p>
             
             </div>
-            <button type="button" class="collapsible">Conclusion</button>
+            <button type="button" class="collapsible">Community Awareness</button>
             <div class="content">
                 <p class="paragraph">
+                   <!-- Ideas:
+                    1: amount of new profiles each year
+                    2: map observations per user vs observations over time (up vs down)
+                    3: make a stat: "90% of native observations are by 10% of people" or something
+                    4: plot observations per user year over year to see if people become more or less involved over time 
+                    -->
+                </p>
+            </div>
+            <button type="button" class="collapsible">Conclusion</button>
+            <div class="content">
+                <b style="font-size:14">What you hopefully learned</b>:<br>
+                <p class="paragraph">
+                    
+                    The analysis of INaturalist's observational data revealed several inherent biases influenced by user behavior, limitations in geographic accessibility
+                    , species charisma, and the advancement of technology, the exact factors that professional surveys aim to eliminate. 
+                    As a result, solely using this data to derive accurate trends in species richness and geographic distributions would be futile. 
+                <br>
+                </p>
+                <p class="paragraph">
+                    However, when used as a supplement to professionally-surveyed data (as is often the case), 
+                    citizen science shines through. In the case of detecting and mapping the aggressive 
+                    spread of ecologically or economically harmful species, like the Coconut Rhinoceros Beetle, INaturalist serves as a vital secondary platform 
+                    which allows the public to visualize threats and provide additional data to the proper authorities which may otherwise not be properly reported.
+                    Additionally, the binary nature of migrational trends (and other phenological phenomena) might allow researchers free access to a larger swath of data that would 
+                    otherwise become expensive at this scale. Applying image recognition to these aggregated observation photographs could (and probably has) open up 
+                    a whole world of insights into various phenological changes. 
+                    Overall, while recognizing its limitations, iNaturalist data serves as a powerful tool for ecological awareness and exploration on an individual
+                    level.
+                    <br><br>
+                    <b style="font-size:14">Skills I learned and improved upon</b>:<br>
+                </p>
+                <p class="paragraph">
+                    <ul>
+                        <li>Pandas library in Python</li>
+                        <li>Data pipelining</li>
+                        <li>Data cleaning and preprocessing</li>
+                        <li>Matplitlib</li>
+                        <li>Geospatial analysis via GeoPandas</li>
+                        <li>Project Management: documentation and version control, time management, problem-solving</li>
+                        <li>Data Storytelling</li>
+                        <li>Implementation via HTML, CSS, and Javascript</li>
+
+                    </ul>
+                    I certainly enjoyed collecting, processing, and analyzing this dataset to better answer a question I have always wondered as an amateur naturalist.
+                    Thank you for reading.
+
                 </p>
             </div>
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
                 <p class="paragraph">
-                    To see the full Jupyter Notebook, view the repository <a href="https://github.com/tahoejoe171/" style="color:#2576b9"> here</a>.
+                    To see the all of the code used for anaysis and processing, view the repository <a href="https://github.com/tahoejoe171/INaturalist-Obersvation-Data-Case-Study-Analysis" style="color:#2576b9"> here</a>.
                 </p>
             </div>
         </div>
