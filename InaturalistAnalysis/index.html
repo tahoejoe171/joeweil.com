@@ -288,8 +288,25 @@
                     </div>
                     <button type="button" class="subsubcollapsible">Charismatic Species</button>
                     <div class="content">
-                        <div id="tester" style="width:80;height:400px; display:flex;justify-content:center">
-                        </div>
+                        <p class="paragraph">
+                            Charisma is arguably one of the most influential reasons why anyone may take a picture of an organism, and in no place is this more
+                            prevalent than Hawaii. If you are taking a vacation to a tropical island, chances are you are going to photograph exotic flora and fauna that 
+                            really catch your eye all while leaving the majority of the natural world in the dust (even I am guilty of this). Hovering over each of the bars on the graph,
+                            you can see photographs of each of the top ten taxa, and you will see precisely why they are so highly observed. Each of these species are visually stunning,
+                            exceedingly abundant, have a famous reputation, or any combination of these three. Suffice it to say, a random sample of ten species in Hawaii will almost certainly not contain one of these ten
+                            species, and despite the fact that plants outweigh animals across the globe 255 to 1, only one of the top ten specimens is a plant.
+                        </p>
+    
+                        <div id="tester" style="width:70%;height:600px; display:flex;justify-content:center">
+                        </div><br>
+
+                        <p class="paragraph">
+                            With regards to taxonomic “demographics,” however, defining what this dataset should look like is not straightforward. Any observational dataset is ultimately
+                             filtered through human perception: what is visible, accessible, charismatic, or simply worth photographing. A dataset proportional to the true number of individual
+                              organisms in Hawaii would be dominated almost entirely by microbes and tiny invertebrates, while one proportional to total biomass would be overwhelmingly
+                              composed of plants, phytoplankton, and a handful of highly abundant insects. Instead, what this graph really illustrates is not the ecological makeup of Hawaii 
+                              itself, but the ecological makeup of human attention. Fortunately, there are more useful fields to look at in this datasetother than just taxonomic demographics.
+                        </p>
                     </div>
                     <button type="button" class="subsubcollapsible">Annual Observation Trends by Establishment Means</button>
                     <div class="content">
@@ -453,7 +470,7 @@
                     The Lorentz curve, normally intended as a graphical distribution of economic wealth, is a great way to visualize the cumulative user to observation ratio. 
                 </p>
                 <div style="text-align:center">
-                    <img src="/assets/visualizations/Lorentz.png" class="collapsible_component">
+                    <img src="/assets/visualizations/Lorentz.png" class="collapsible_component" style = "max-height:700px">
                     <br>
                 </div>
                 <p>
@@ -626,25 +643,48 @@
             TESTER = document.getElementById('tester');
 
             const imageUrls = [
-                "/assets/graph_pics_folder/turtle.jpg", // Green Sea Turtle
-                "/assets/graph_pics_folder/cardinal.jpg", // Red-Crested Cardinal
-                "/assets/graph_pics_folder/dove.jpg", // Zebra Dove
-                "/assets/graph_pics_folder/gecko.jpg", // Gold Dust Day Gecko
-                "/assets/graph_pics_folder/ohia.jpg", // O'hia Lehua
-                "/assets/graph_pics_folder/myna.jpg", // Common Myna
-                "/assets/graph_pics_folder/anole.jpg", // Brown Anole
-                "/assets/graph_pics_folder/plover.jpg", // Pacific Golden Plover
-                "/assets/graph_pics_folder/egret.jpg", // Western Cattle Egret
                 "/assets/graph_pics_folder/nene.jpg", // Hawaiian Goose
+                "/assets/graph_pics_folder/egret.jpeg", // Western Cattle Egret
+                "/assets/graph_pics_folder/plover.jpg", // Pacific Golden Plover
+                "/assets/graph_pics_folder/anole.jpg", // Brown Anole
+                "/assets/graph_pics_folder/myna.jpg", // Common Myna
+                "/assets/graph_pics_folder/ohia.jpeg", // O'hia Lehua
+                "/assets/graph_pics_folder/gecko.jpg", // Gold Dust Day Gecko
+                "/assets/graph_pics_folder/dove.jpg", // Zebra Dove
+                "/assets/graph_pics_folder/cardinal.jpg", // Red-Crested Cardinal
+                "/assets/graph_pics_folder/turtle.jpg", // Green Sea Turtle
             ];
 
             const plot = Plotly.newPlot(TESTER, [{
                 x: [3436, 4354, 4789, 5351, 5415, 5815, 5874, 6230, 6683, 8194],
-                y: ['Hawaiian Goose (Branta sandvicensis)', 'Western Cattle-egret (Ardea ibis)', 'Pacific Golden Plover (Pluvialis fulva)', 'Brown Anole (Anolis sagrei)', 'Common Myna (Acridotheres tristis)', 'Ōhiʻa Lehua (Metrosideros polymorpha)', 'Gold Dust Day Gecko (Phelsuma laticauda)', 'Zebra Dove (Geopelia striata)', 'Red-crested Cardinal (Paroaria coronata)', 'Green Sea Turtle (Chelonia mydas)'],
+                y: ['Hawaiian Goose', 'Western Cattle-egret', 'Pacific Golden Plover', 'Brown Anole', 'Common Myna', 'Ōhiʻa Lehua', 'Gold Dust Day Gecko', 'Zebra Dove', 'Red-crested Cardinal', 'Green Sea Turtle'],
                 type: 'bar',
                 orientation: 'h',
-                hovertemplate: '%{y}<extra></extra>'
-            }], { margin: { t: 0 } });
+                hovertemplate: '%{y}<extra></extra>',
+                marker: {
+                    color: "#f78243"
+                }
+            }], { margin: { t: 50, l:350,r:100},
+            paper_bgcolor:"#FAF5EE",
+            plot_bgcolor: "#FAF5EE",
+
+            font: {
+                family:"serif",
+                size: 18,
+                color: "#555"
+            },
+            xaxis:{
+                title:{
+                    text: "Number of Obeservations Until 2025",
+                    font: {size:22}
+                },
+                standoff: -20
+            },
+            title:{
+                text: "Top 10 Most Observed Species",
+                font: {size: 26}
+            }        
+            });
 
             // Create a floating image element
             const hoverImg = document.createElement('img');
