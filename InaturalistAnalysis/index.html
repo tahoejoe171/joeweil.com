@@ -624,16 +624,47 @@
             };
 
             TESTER = document.getElementById('tester');
-	        Plotly.newPlot( TESTER, [{
-	        x: [3436, 4354, 4789, 5351, 5415,5815,5874,6230,6683,8194],
-	        y: ['Hawaiian Goose (Branta sandvicensis)','Western Cattle-egret (Ardea ibis)','Pacific Golden Plover (Pluvialis fulva)','Brown Anole (Anolis sagrei)','Common Myna (Acridotheres tristis)','Ōhiʻa Lehua (Metrosideros polymorpha)','Gold Dust Day Gecko (Phelsuma laticauda)','Zebra Dove (Geopelia striata)','Red-crested Cardinal (Paroaria coronata)','Green Sea Turtle (Chelonia mydas)'],
-            type:'bar',
-            title:"Species with the Most Observations",
-            orientation:'h',
-            hovertext:'<img src="https://inaturalist-open-data.s3.amazonaws.com/photos/468300961/original.jpg">'}], {
-	        margin: { t: 0 } } 
-            ,
-            );
+
+            const imageUrls = [
+                "/assets/graph_pics_folder/turtle.jpg", // Green Sea Turtle
+                "/assets/graph_pics_folder/cardinal.jpg", // Red-Crested Cardinal
+                "/assets/graph_pics_folder/dove.jpg", // Zebra Dove
+                "/assets/graph_pics_folder/gecko.jpg", // Gold Dust Day Gecko
+                "/assets/graph_pics_folder/ohia.jpg", // O'hia Lehua
+                "/assets/graph_pics_folder/myna.jpg", // Common Myna
+                "/assets/graph_pics_folder/anole.jpg", // Brown Anole
+                "/assets/graph_pics_folder/plover.jpg", // Pacific Golden Plover
+                "/assets/graph_pics_folder/egret.jpg", // Western Cattle Egret
+                "/assets/graph_pics_folder/nene.jpg", // Hawaiian Goose
+            ];
+
+            const plot = Plotly.newPlot(TESTER, [{
+                x: [3436, 4354, 4789, 5351, 5415, 5815, 5874, 6230, 6683, 8194],
+                y: ['Hawaiian Goose (Branta sandvicensis)', 'Western Cattle-egret (Ardea ibis)', 'Pacific Golden Plover (Pluvialis fulva)', 'Brown Anole (Anolis sagrei)', 'Common Myna (Acridotheres tristis)', 'Ōhiʻa Lehua (Metrosideros polymorpha)', 'Gold Dust Day Gecko (Phelsuma laticauda)', 'Zebra Dove (Geopelia striata)', 'Red-crested Cardinal (Paroaria coronata)', 'Green Sea Turtle (Chelonia mydas)'],
+                type: 'bar',
+                orientation: 'h',
+                hovertemplate: '%{y}<extra></extra>'
+            }], { margin: { t: 0 } });
+
+            // Create a floating image element
+            const hoverImg = document.createElement('img');
+            hoverImg.style.cssText = 'position:fixed; width:150px; border-radius:8px; display:none; pointer-events:none; z-index:999;';
+            document.body.appendChild(hoverImg);
+
+            TESTER.on('plotly_hover', function(data) {
+                const pt = data.points[0];
+                hoverImg.src = imageUrls[pt.pointIndex];
+                hoverImg.style.display = 'block';
+            });
+
+            TESTER.on('plotly_unhover', function() {
+                hoverImg.style.display = 'none';
+            });
+
+            TESTER.addEventListener('mousemove', function(e) {
+                hoverImg.style.left = (e.clientX + 15) + 'px';
+                hoverImg.style.top  = (e.clientY + 15) + 'px';
+            });
 
         </script>
     </body>
