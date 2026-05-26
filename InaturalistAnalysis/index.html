@@ -270,11 +270,13 @@
                 <div class="content">
                     <button type="button" class="subsubcollapsible">Tourism Volume vs Observation Volume (Click the graph to toggle)</button>
                     <div class="content">
-                        <div class="imgwrapper" style="position:relative; width:100;height:450px; text-align:center">
-                            <img src="/assets/visualizations/Seasonality_Bias.png"class="collapsible_component toggleimg" style="position:absolute">
-                            <img id="tourism" src="/assets/visualizations/tourismstats.png"class="collapsible_component toggleimg" style="position:absolute">
+                        <div class="imgwrapper" style="display:flex; justify-content:center; margin-bottom:20px;">
+                            <div style="position:relative; width:fit-content;">
+                                <img src="/assets/visualizations/Seasonality_Bias.png" class="collapsible_component toggleimg" style="max-height:650px; max-width:100%; object-fit:contain; display:block;">
+                                <img id="tourism" src="/assets/visualizations/tourismstats.png" class="collapsible_component toggleimg" style="max-height:650px; max-width:100%; object-fit:contain; position:absolute; top:0; left:0;">
+                            </div>
                         </div>
-                        <p class="paragraph" >
+                        <p class="paragraph">
                             Comparing the graphs, it is pretty clear that tourism plays a major role in contributing to INaturalist observations. Low travel months tend to have an impact on observatio volume, while higher travel months
                             have the opposite effect. One thing to note is the summer months of June, July, and August. While travel during these months is at its highest, observation volume is only at a moderate level. While travel volume seems to be pretty well correlated to 
                             observation volume, the summer discrepancy likely has to do with the fact that tourists are less likely to be spending time hiking and exploring the land during times of peak temperature, and are more likely to spend time 
@@ -400,17 +402,24 @@
                     <p class="paragraph">
                         Elevational changes in species' populations is another important metric in ecological surveys. Famously in Hawaii, the increase of global temperatures
                         has been shown to increase the viable habitat range of (invasive) avian-malaria-carrying mosquitoes <i>Mauka</i>, or mountain-side, which in turn has reduced 
-                        the range of many endangered endemic bird species to the highest reaches of their remaining habitat. Though precise coordinates are unavailable for these kinds of species
-                        on INaturalist, we can still see if elevational trends exist in more stationary species, like (non-threatened) trees. 
+                        the range of many endangered endemic bird species to the highest reaches of their remaining habitat. Though precise coordinates are unavailable for the more endangered species,
+                        the I'iwi (Scarley Honeycreeper) does have some datapoints worth looking at.
+                        <br><br>
+                        In order to retrieve elevational datapoints, I fed my data through the <a href="https://open-meteo.com/en/docs/elevation-api" style="color:#2576b9"> Open Meteo API </a> and integrated the results into my dataset. 
                         <br>
 						<div style = "display: flex; justify-content:center; align-items:center; height:100%">
-							<img src="/assets/visualizations/Drepanis coccinea elevation trends.png" class="collapsible_component" style = "max-height:400px">
+							<img src="/assets/visualizations/Drepanis coccinea elevation trends.png" class="collapsible_component" style = "max-height:600px">
 						</div>
 						<br>
-                        However, one huge issue is that the same tree can be observed an unlimited amount of times by an unlimited amount of users. In other words, the complete (and reasonable) lack of
-                        discipline and communication between citizen scientists observing the same specimen may completely skew the dataset.
-                        One way we can overcome this is to screen out observations that lie too close to others. While complete screening for repeated observations would require advanced or even manual image processing,
-                        this is the best we can do for now. 
+                        Official data from well-funded studies have shown that avian-malaria intolerant bird species of this region show upward range shifts in elevation, due to the inhospitable conditions for  
+                        southern house mosquitoes in high altitudes. From a quick plot of my data, two things are clear. The first is that the sample sizes for visualizing this trend are simply too small. 
+                        While the volatility seems to decrease with more data-rich years, the expected upward trend is not yet clear, and may never be. Secondly, another factor seems to have a disproportionate effect
+                        on the trend. The positional accuracy, a redius measured in meters on Inaturalist, is simply too large (>100m) for many of these observations. While there is a plethora of datapoints for the scarlet honeycreeper,
+                        only a small portion have a positional accuracy small enough to render any reliable accuracy—a factor with a disproportionate effect in such mountainous regions. 
+                        <br>
+                        <br>
+                        If most observations on INaturalist had geotags with accuracy on the order of at most 10m, then this community-derived geospatial dataset would be worth it's weight in gold. Unfortunately, as this will never be the case,
+                        many geospatial analyses are next to useless. 
                     </p>
                 </div>
                 
@@ -531,17 +540,22 @@
             img1.style.zIndex = "10"; // Start with img1 in front
             img2.style.zIndex = "-10";  // img2 behind
             img2.style.pointerEvents = "none"; // Prevent img2 from blocking img1 initially
+            img2.style.opacity="0";
             function toggleImages() {
                 if (img1.style.zIndex === "10") {
                     img1.style.zIndex = "-10";
                     img2.style.zIndex = "10";
                     img1.style.pointerEvents = "none"; // Prevents img1 from blocking clicks when behind
                     img2.style.pointerEvents = "auto";
+                    img1.style.opacity = "0";
+                    img2.style.opacity = "1";
                 } else {
                     img1.style.zIndex = "10";
                     img2.style.zIndex = "-10";
                     img1.style.pointerEvents = "auto";
                     img2.style.pointerEvents = "none";
+                    img1.style.opacity = "1";
+                    img2.style.opacity = "0";
                 }
             }
         
