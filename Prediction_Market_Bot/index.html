@@ -178,8 +178,20 @@
             <button type="button" class="collapsible">Abstract</button>
             <div class="content">
                 <p class="paragraph">
-                  This project is a fully autonomous prediction market trading bot built in Python, designed to pipeline live market data, conduct quantitative analysis, and execute trades on prediction market event derivatives. The system runs continuously on local hardware, ingesting and preprocessing market data in real time, applying statistical forecasting models to assess outcome probabilities, and executing trades based on systematic decision logic.
-The core objective was to build an end-to-end data pipeline that could independently identify mispriced market opportunities and act on them without manual intervention. Key technical components include a live data ingestion pipeline, quantitative probability modeling, and automated trade execution, all implemented in Python. This project is mostly complete, and documentation is in progress. 
+                  There is an old joke that goes as follows: Two economists are walking down the street and pass by a $100 bill on the ground without picking it up.
+                  The first economist asks the other: "Was that a hundred dollar bill on the ground?" to which the other replies, "Nope, if it was, someone would have picked it up already".
+                  <br>
+                </p>
+                <p class="paragraph">
+                    I often think that this notion that good ideas have already been capitalized on should prevent me from taking on any risk for fear of wasting my time, and nowhere is that more true than with 
+                    trading in asset markets. I have always wanted to develop a fully-fledged autonomous system to print money for me, but as anyone might reasonably think, successfully competing with bots worldwide is a total pipe dream. However with algorithmic trading,
+                    the total lack of willingness of anyone to share any methodologies or "alpha" for fear of losing one's profitability has made me wonder if I can develop my own. Surely, a unique mix of signals derived
+                    from a plethora of my own data and mathematical predictions could offer me a subset of market conditions which, if traded properly, could yield some profit. Ultimately, I do not expect to get rich off a probabilistic
+                    machine, however at the very least, I could develop my own system, improve my programming and development skills, and create a worthwhile project to showcase here.
+                </p>
+                <p class="paragraph">
+                  This project is a fully autonomous prediction market trading bot built in Python, designed to pipeline live market data, conduct quantitative analysis, and execute trades on prediction market event derivatives for 15-minute cryptocurrency markets. The system runs continuously on local hardware, ingesting and preprocessing market data in real time, applying statistical forecasting models to assess outcome probabilities, and executing trades based on systematic decision logic.
+                  The core objective was to build an end-to-end data pipeline that could independently identify mispriced market opportunities and act on them without manual intervention. Key technical components include a live data ingestion pipeline, quantitative probability modeling and backtesting engine, and automated trade execution, all implemented in Python. This project is mostly complete, and documentation is in progress. 
                 </p>
             </div>
             <button type="button" class="collapsible">Objectives</button>
@@ -189,17 +201,22 @@ The core objective was to build an end-to-end data pipeline that could independe
                     <li> Achieve consistent positive expected value across a diversified set of market positions</li>
                     <li> Ensure system reliability and uptime on permanent local hardware</li>
                     <li> Develop and refine custom probabilistic forecasting models to identify market inefficiencies</li>
-                    <li> Profit</li>
+                    <li> Profit?</li>
 
                 </ul>
             </div>
             <button type="button" class="collapsible">How it works</button>
             <div class="content">
-                <button type="button" class="subcollapsible">Main Methods</button>
+                <p class="paragraph">
+                    The foundation of this system is a series of coroutines which poll live websocket data streams from Coinbase (BTC price) and Kalshi (yes/no bid and ask prices). A dedicated REST poller runs in parallel as a source of truth, which 
+                    refreshes market prices to prevent collecting stale data. The streams feed into a 0.5-second sampler which records market state and price snapshots, operates the forecasting logic, and executes trades. A separate backtesting engine 
+                    is used periodically to simulate live trading across the whole dataset and optimize constraints.
+                </p>
+                <button type="button" class="subcollapsible">Primary Methods</button>
                 <div class="content">
-                    <iframe src=""> <!--Put Demo here!-->
+                <!--<iframe src=""> Put Demo here!
 
-                    </iframe>
+                    </iframe> -->
                 <ul>
                     <li>single_stream_market: Maintains a live kalshi websocket stream for one market ticker</li>
                     <li>stream_market: time-driven lifecycle manager that pre-fetches, warms up, and promotes new markets at ever 15 minute boundary</li>
@@ -210,11 +227,13 @@ The core objective was to build an end-to-end data pipeline that could independe
                     <li>periodic_save: saves data ever 2 hours as a background task</li>
                     <li>write_current_data: blocking worker that writes current_data snapshot to its temp CSV file</li>
                     <li>schedule_save_current_data: non-blocking dispatcher that offloads the write_current_data to a thread</li>
+                    <li>place_order: uses the Kalshi API to place predictions on my account</li>
                     <li>main: initializes globals, resolves the current market, registers signal handlers, and launches all asynchronous coroutines</li>
+                    <li>simulator: systematically runs the dataset through a one-to-one live market simulation, optimizing constraints and variables for profit</li>
                 </ul>
                 </div>
             </div>
-            <button type="button" class="collapsible">Analysis and Optimization</button>
+            <button type="button" class="collapsible">Backtesting Engine and Optimization</button>
             <div class="content">
                 <p>
                     
