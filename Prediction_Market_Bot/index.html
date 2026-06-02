@@ -235,33 +235,42 @@
             </div>
             <button type="button" class="collapsible">Backtesting Engine and Optimization</button>
             <div class="content">
+                <ul>
+                    <li>Check the dataset for missing target price values and poll the Kalshi API to fill missing values with those from the resolved markets</li>
+                    <li>Identically recreate the internal market conditions for every complete market in the dataset</li>
+                    <li>Run predictive modeling using customizable parameters and market condition constraints</li>
+                    <li>Compile the many qualitative/quantitative output fields into a results dataset for direct comparison of parameter sets </li>
+                    <li>Simulate thousands of sets of parameters using threading</li>
+                </ul>
                 <p>
-                    
                 </p>
             </div>
-            <button type="button" class="subcollapsible">Server Setup</button>
+            <button type="button" class="collapsible">Server Setup</button>
                 <div class="content">
-                    <iframe src=""> 
-      
-                      
 
-
-                    </iframe>
                 </div> 
             <button type="button" class="collapsible">Technical Challenges</button>
             <div class="content">
                 <p>
                     <ul>
-                        <li>Large-scale dataset assessment and log-combing to troubleshoot data pipeline bugs over the course of months</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-
+                        <li>Maintaining simultaneous persistent connections to Kalshi and Coinbase's price feeds, handling disconnectoins, timeouts, and reconnection logic without data corruption or I/O blocking</li>
+                        <li>Large-scale dataset assessment and log-combing to troubleshoot data pipeline bugs over the course of months and tens of millions of data rows</li>
+                        <li>Maintaining atomicity across four derived data fields that are independently updated in the underlying feed in order to prevent spread inversion/corruption</li>
+                        <li>Corrdinating a precise 15-minute market boundary transition with absolutely zero data loss or overlap</li>
+                        <li>Ensuring Idempotency in fill-or-kill order placement under retry</li>
+                        <li>Identifying and accurately quanitfying mispriced market conditions based on quantifications of my own design </li>
+                        <li>Reproducing the identical internal state of the live trading system at any point from a CSV, including premarket seeding, time derivation, coverage calculations, and benchmark index lookups</li>
+                        <li>Calibrating predictive modeling against millions of Monte Carlo simulations and ensuring genuine predictive edge/profitability with statistical modeling</li>
                     </ul>
                 </p>
             </div>
+                        <button type="button" class="collapsible">Findings </button>
+            <div class="content">
+                <p>
+                    
+                </p>
+            </div>
+
             <button type="button" class="collapsible">Full Respository</button>
             <div class="content">
                 <p>
