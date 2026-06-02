@@ -218,18 +218,18 @@
 
                     </iframe> -->
                 <ul>
-                    <li>single_stream_market: Maintains a live kalshi websocket stream for one market ticker</li>
-                    <li>stream_market: time-driven lifecycle manager that pre-fetches, warms up, and promotes new markets at ever 15 minute boundary</li>
-                    <li>sample_price: Samples all market state every 0.5s, operates the prediction model, and appends rows to current_data</li>
-                    <li>watchdog: logs a heartbeat every 30s to prevent stale market values</li>
-                    <li>stream_prices: maintains a live BTC/USD price feed from Coinbase websocket</li>
-                    <li>_seed_from_rest: fetches the current best bid/ask from Kalshi REST API immediately after websocket subscription to eliminate cold-start gap</li>
-                    <li>periodic_save: saves data ever 2 hours as a background task</li>
-                    <li>write_current_data: blocking worker that writes current_data snapshot to its temp CSV file</li>
-                    <li>schedule_save_current_data: non-blocking dispatcher that offloads the write_current_data to a thread</li>
-                    <li>place_order: uses the Kalshi API to place predictions on my account</li>
-                    <li>main: initializes globals, resolves the current market, registers signal handlers, and launches all asynchronous coroutines</li>
-                    <li>simulator: systematically runs the dataset through a one-to-one live market simulation, optimizing constraints and variables for profit</li>
+                    <li><b>single_stream_market:</b> Maintains a live kalshi websocket stream for one market ticker</li>
+                    <li><b>stream_market:</b> time-driven lifecycle manager that pre-fetches, warms up, and promotes new markets at ever 15 minute boundary</li>
+                    <li><b>sample_price:</b> Samples all market state every 0.5s, operates the prediction model, and appends rows to current_data</li>
+                    <li><b>watchdog:</b> logs a heartbeat every 30s to prevent stale market values</li>
+                    <li><b>stream_prices:</b> maintains a live BTC/USD price feed from Coinbase websocket</li>
+                    <li><b>_seed_from_rest:</b> fetches the current best bid/ask from Kalshi REST API immediately after websocket subscription to eliminate cold-start gap</li>
+                    <li><b>periodic_save:</b> saves data ever 2 hours as a background task</li>
+                    <li><b>write_current_data:</b> blocking worker that writes current_data snapshot to its temp CSV file</li>
+                    <li><b>schedule_save_current_data:</b> non-blocking dispatcher that offloads the write_current_data to a thread</li>
+                    <li><b>place_order:</b> uses the Kalshi API to place predictions on my account</li>
+                    <li><b>main:</b> initializes globals, resolves the current market, registers signal handlers, and launches all asynchronous coroutines</li>
+                    <li><b>simulator:</b> systematically runs the dataset through a one-to-one live market simulation, optimizing constraints and variables for profit</li>
                 </ul>
                 </div>
             </div>
@@ -247,12 +247,18 @@
 
 
                     </iframe>
-                </div>
+                </div> 
             <button type="button" class="collapsible">Technical Challenges</button>
             <div class="content">
                 <p>
                     <ul>
-                        <li>To be added soon!</li>
+                        <li>Large-scale dataset assessment and log-combing to troubleshoot data pipeline bugs over the course of months</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
                     </ul>
                 </p>
             </div>
