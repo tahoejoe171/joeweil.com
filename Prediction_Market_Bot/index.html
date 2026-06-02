@@ -247,7 +247,10 @@
             </div>
             <button type="button" class="collapsible">Server Setup</button>
                 <div class="content">
-
+                    <p class="paragraph">Instead of implementing this system on a cloud server, I opted to run this on a local machine. Not only would this save me money in the long term on subscription costs, but I would have 
+                        complete control over my server and my data. I opted for a Dell Optiplex 9020 SFF with an intel core i7, 16gb RAM, and a 256GB SSD. While inexpensive, this modest system would be able to handle at least several concurrent
+                        trading bots—exactly the basic starting hardware for a proof-of-concept system.
+                    </p>
                 </div> 
             <button type="button" class="collapsible">Technical Challenges</button>
             <div class="content">
@@ -261,14 +264,20 @@
                         <li>Identifying and accurately quanitfying mispriced market conditions based on quantifications of my own design </li>
                         <li>Reproducing the identical internal state of the live trading system at any point from a CSV, including premarket seeding, time derivation, coverage calculations, and benchmark index lookups</li>
                         <li>Calibrating predictive modeling against millions of Monte Carlo simulations and ensuring genuine predictive edge/profitability with statistical modeling</li>
+                        <li>Efficient bet sizing and timing with Kelly criterion</li>
                     </ul>
                 </p>
             </div>
-                        <button type="button" class="collapsible">Findings </button>
+                        <button type="button" class="collapsible">Findings and What I Learned </button>
             <div class="content">
-                <p>
-                    
-                </p>
+                <ul>
+                    <li>Websocket connection</li>
+                    <li>Asyncio for asynchronous coroutines</li>
+                    <li>Self-hosted server setup on Ubuntu</li>
+                    <li>Cryptocurrency and prediction market dynamics</li>
+                    <li></li>
+
+                </ul>
             </div>
 
             <button type="button" class="collapsible">Full Respository</button>
